@@ -1,10 +1,13 @@
 ﻿using BuildingBlock.CQRS;
+using System.Text.Json.Serialization;
 
 namespace Api.Products.v1.UpdateProduct;
 
 public class UpdateProductCommand : ICommand
 {
-    internal Guid Id { get; private set; }
+    [JsonIgnore]
+    public Guid Id { get; private set; }
+
     public string Name { get; set; } = default!;
     public List<string> Category { get; set; } = default!;
     public string Description { get; set; } = default!;
