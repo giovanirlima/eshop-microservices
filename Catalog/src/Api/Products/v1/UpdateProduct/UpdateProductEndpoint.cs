@@ -3,11 +3,11 @@ using MediatR;
 
 namespace Api.Products.v1.UpdateProduct;
 
-public class UpdateProductEEndpoint : ICarterModule
+public class UpdateProductEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPut("api/v1/products/{id}",
+        app.MapPut("/api/v1/product/{id}",
             async (Guid id, UpdateProductCommand request, ISender sender) =>
         {
             await sender.Send(request.SetIdProperty(id));

@@ -7,7 +7,7 @@ public class AddProductEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapPost("api/v1/products",
+        app.MapPost("/api/v1/product",
             async (AddProductCommand request, ISender sender) =>
         {
             await sender.Send(request);
